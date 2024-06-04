@@ -1,7 +1,8 @@
 ## What is this script
 
-We are noticing some weird behavior whereby in some chains the address computed and returned by the ComposableStablePoolFactory is
-different than the one that is actually deployed and emitted in the pool creation event.
+We are noticing some weird behavior whereby the address computed and returned by the
+ComposableStablePoolFactory is different than the one that is actually deployed
+and emitted in the pool creation event. This might be an issue with Foundry Script?
 
 This happens intermittently. See this asciinema for reference: https://asciinema.org/a/EJNtfBkOVtlD3OdLUHgOh5e4t
 
