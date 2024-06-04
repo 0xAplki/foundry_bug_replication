@@ -1,66 +1,21 @@
-## Foundry
+## What is this script
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+We are noticing some weird behavior whereby the address computed and returned by the
+ComposableStablePoolFactory is different than the one that is actually deployed
+and emitted in the pool creation event. This might be an issue with Foundry Script?
 
-Foundry consists of:
+This happens intermittently. See this asciinema for reference: https://asciinema.org/a/EJNtfBkOVtlD3OdLUHgOh5e4t
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## How to run this script against mainnet fork
 
-## Documentation
+```sh
+forge install
 
-https://book.getfoundry.sh/
+# start anvil forking mainnet
+# NB: if you prefer another RPC url see https://chainlist.org/chain/1
+anvil --rpc-url wss://ethereum-rpc.publicnode.com
 
-## Usage
+# in a different terminal
+forge script script/BugReplication.s.sol --rpc-url http://127.0.0.1:8545 --broadcast --skip-simulation -vvvvv
 
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
 ```
